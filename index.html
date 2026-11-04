@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="pt-BR" class="sem-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>W.A.T.A. · Pagamento por serviço ambiental hídrico, com prova pública</title>
+<meta name="description" content="A W.A.T.A. transforma a medição da água do rio em prova, e a prova em pagamento para quem protege a bacia. Em desenvolvimento na rede Hedera.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#dfe9e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b2b30" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="W.A.T.A. · Pagamento por serviço ambiental hídrico, com prova pública">
+<meta property="og:description" content="A medição da água do rio vira prova, e a prova vira pagamento para quem protege a bacia. Em desenvolvimento na rede Hedera.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/logo/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/logo/icone-180.png">
+<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<script>
+(function(){var h=document.documentElement;h.classList.remove('sem-js');
+try{var t=localStorage.getItem('wata.site.tema');if(t!=='claro'&&t!=='escuro')t=matchMedia('(prefers-color-scheme: dark)').matches?'escuro':'claro';h.setAttribute('data-tema',t);
+var m=localStorage.getItem('wata.site.movimento');if(m==='reduzido'||(m!=='completo'&&matchMedia('(prefers-reduced-motion: reduce)').matches))h.setAttribute('data-movimento','reduzido');
+var leve=(navigator.hardwareConcurrency||4)<=4||(navigator.deviceMemory&&navigator.deviceMemory<=4);h.setAttribute('data-perfil',localStorage.getItem('wata.site.perfil')||(leve?'leve':'forte'));}catch(e){h.setAttribute('data-tema','claro');h.setAttribute('data-perfil','leve')}})();
+</script>
+</head>
+<body>
+<a class="pular" href="#cena-1">Pular para o conteúdo</a>
+
+<div id="palco" aria-hidden="true">
+  <canvas id="mundo"></canvas>
+  <canvas id="vivo"></canvas>
+  <div class="veu"></div>
+</div>
+
+<div id="indicador" aria-hidden="true"><i></i></div>
+
+<header id="topo">
+  <nav class="nav" aria-label="Principal">
+    <a class="marca" href="#cena-1"><img src="assets/logo/wata-simbolo-plano.svg" alt="" width="26" height="31">W.A.T.A.</a>
+    <a class="sec" href="#cena-2">A medição</a>
+    <a class="sec" href="#cena-3">A regra</a>
+    <a class="sec" href="#cena-4">O pagamento</a>
+    <a class="sec" href="#cena-5">A prova</a>
+    <a class="sec" href="#cena-6">O piloto</a>
+    <a class="sec" href="#experimente">Experimente</a>
+    <div class="controles">
+      <div class="seg vidro" role="group" aria-label="Tema">
+        <button type="button" data-tema="claro" aria-pressed="false">Claro</button>
+        <button type="button" data-tema="escuro" aria-pressed="false">Escuro</button>
+      </div>
+      <div class="seg vidro" role="group" aria-label="Idioma">
+        <button type="button" aria-pressed="true" lang="pt-BR">PT-BR</button>
+        <button type="button" aria-pressed="false" lang="en" disabled title="English version soon">EN</button>
+      </div>
+      <div class="seg vidro" role="group" aria-label="Movimento">
+        <button type="button" id="btn-movimento" aria-pressed="false" title="Ver sem animação">Sem animação</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<main id="conteudo">
+
+<section class="cena" id="cena-1" data-cena="1" data-pin="480" aria-label="O rio sem prova">
+  <div class="fixo">
+    <button type="button" class="toque" id="toque-agua" aria-label="Toque na água para ver como ela fica"></button>
+    <div class="bloco baixo" data-texto="hero">
+      <h1 id="h1-a" data-manchete="a">W.A.T.A. · Pagamento por serviço ambiental hídrico, com prova pública</h1>
+      <h1 id="h1-b" data-manchete="b" aria-hidden="true">Quem cuida da água deveria poder mostrar o que fez e receber por isso.</h1>
+      <p class="apoio">A W.A.T.A. transforma a medição da água do rio em prova, e a prova em pagamento para quem protege a bacia. Em desenvolvimento na rede Hedera, com um piloto sobre dados públicos do Rio de Janeiro.</p>
+    </div>
+    <p class="dica" id="dica-1"><span class="seta" aria-hidden="true"></span>Toque na água para ver como ela fica. Role para continuar.</p>
+  </div>
+</section>
+
+<section class="cena" id="cena-2" data-cena="2" data-pin="320" aria-label="A medição">
+  <div class="fixo">
+    <div class="bloco alto" data-texto="cap">
+      <h2>A água do Macaé, medida por quem já mede.</h2>
+      <p class="apoio">O piloto usa as coletas públicas do INEA, o órgão ambiental do Rio de Janeiro, em estações da Região Hidrográfica VIII. Sete parâmetros contam a saúde do rio, do oxigênio à turbidez.</p>
+      <ol class="batidas">
+        <li data-p="0.33"><b>A fonte.</b> Rede de monitoramento do INEA, coletas públicas.</li>
+        <li data-p="0.53"><b>Os sete parâmetros.</b> Oxigênio dissolvido, DBO, pH, fósforo total, nitrato, turbidez e sólidos dissolvidos.</li>
+        <li data-p="0.73"><b>A origem guardada.</b> Cada medição guarda a estação e o arquivo de origem.</li>
+      </ol>
+    </div>
+
+    <dl class="parametros vidro" aria-label="Os sete parâmetros e suas unidades">
+      <div data-p="0.50"><dt>Oxigênio dissolvido</dt><dd><small>mg/L</small></dd></div>
+      <div data-p="0.53"><dt>DBO</dt><dd><small>mg/L</small></dd></div>
+      <div data-p="0.56"><dt>pH</dt><dd><small>adimensional</small></dd></div>
+      <div data-p="0.59"><dt>Fósforo total</dt><dd><small>mg/L</small></dd></div>
+      <div data-p="0.62"><dt>Nitrato</dt><dd><small>mg/L</small></dd></div>
+      <div data-p="0.65"><dt>Turbidez</dt><dd><small>UNT</small></dd></div>
+      <div data-p="0.68"><dt>Sólidos dissolvidos</dt><dd><small>mg/L</small></dd></div>
+      <div class="fonte" data-p="0.73"><dt class="visually-hidden">Fonte</dt><dd>Estação IM0010 · Rio Imboassica · INEA</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="cena" id="cena-3" data-cena="3" data-pin="340" aria-label="A regra">
+  <div class="fixo">
+    <div class="bloco alto" data-texto="cap">
+      <h2>O rio recebe uma nota, e a conta é aberta.</h2>
+      <p class="apoio">Cada amostra é comparada ao limite da lei para rios de classe 2, a classe adotada no piloto enquanto não há enquadramento aprovado. Os parâmetros que mais pesam para a vida no rio, como o oxigênio, contam mais. A regra é pública e a nota pode ser refeita com os mesmos dados.</p>
+      <ol class="batidas">
+        <li data-p="0.30"><b>O limite.</b> Resolução CONAMA 357/2005, água doce classe 2.</li>
+        <li data-p="0.50"><b>O peso.</b> Pesos do índice de qualidade da água adotado pelo INEA.</li>
+        <li data-p="0.70"><b>A nota.</b> De 0 a 100 por período. Quem paga e quem recebe combinam a nota mínima antes.</li>
+      </ol>
+    </div>
+    <figure class="marcas" aria-label="Régua: sete parâmetros e a nota mínima combinada">
+      <svg viewBox="0 0 420 520" aria-hidden="true">
+        <line x1="400" y1="10" x2="400" y2="510" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+        <g class="m" data-p="0.20" transform="translate(0 94)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2"/><text x="362" y="5" text-anchor="end">Oxigênio dissolvido</text></g>
+        <g class="m" data-p="0.28" transform="translate(0 154)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2"/><text x="362" y="5" text-anchor="end">DBO</text></g>
+        <g class="m" data-p="0.36" transform="translate(0 184)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2"/><text x="362" y="5" text-anchor="end">pH</text></g>
+        <g class="m cruza" data-p="0.44" transform="translate(0 219)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4"/><text x="362" y="5" text-anchor="end">Fósforo total · acima do limite</text></g>
+        <g class="m" data-p="0.52" transform="translate(0 304)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2"/><text x="362" y="5" text-anchor="end">Nitrato</text></g>
+        <g class="m cruza" data-p="0.60" transform="translate(0 354)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4"/><text x="362" y="5" text-anchor="end">Turbidez · acima do limite</text></g>
+        <g class="m" data-p="0.68" transform="translate(0 414)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2"/><text x="362" y="5" text-anchor="end">Sólidos dissolvidos</text></g>
+        <g class="m min" data-p="0.80" transform="translate(0 164)"><line x1="280" y1="0" x2="400" y2="0" stroke="var(--nivel)" stroke-width="2.5"/><text x="270" y="5" text-anchor="end">70 · nota mínima combinada</text></g>
+        <rect id="nota-barra" x="396" y="510" width="8" height="0" fill="var(--nivel)" opacity=".8"/>
+      </svg>
+      <figcaption class="visually-hidden">Traço contínuo: parâmetro abaixo do limite legal. Tracejado: acima do limite. A linha dos 70 é a nota mínima combinada antes entre quem paga e quem recebe.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="cena" id="cena-4" data-cena="4" data-pin="460" data-portao="0.42" aria-label="O pagamento chega">
+  <div class="fixo">
+    <div class="gesto vidro" id="gesto" data-reserva="false">
+      <button type="button" class="anel" id="anel" aria-label="Liberar o pagamento: segure para a nota subir até 70" aria-describedby="gesto-dica" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-travado="false">
+        <svg viewBox="0 0 132 132" aria-hidden="true">
+          <circle class="trilha" cx="66" cy="66" r="60"/>
+          <circle class="alvo" cx="66" cy="66" r="60" stroke-dasharray="264 113" />
+          <circle class="nota" cx="66" cy="66" r="60"/>
+        </svg>
+        <b id="anel-valor">0</b><small>nota</small>
+      </button>
+      <p id="gesto-dica">Segure para liberar. A nota sobe até 70, o mínimo combinado; só então o pagamento desce.</p>
+      <button type="button" class="reserva" id="btn-liberar">Liberar o pagamento</button>
+    </div>
+    <div class="bloco baixo" data-texto="hero">
+      <h2>Rio melhor, pagamento na conta de quem cuidou.</h2>
+      <p class="apoio">Quando a nota combinada é atingida, o valor do período vai direto para quem protege a água. No piloto, isso acontece em contas de teste da Hedera.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cena" id="cena-5" data-cena="5" data-pin="340" aria-label="A prova pública">
+  <div class="fixo">
+    <div class="bloco alto" data-texto="cap">
+      <h2>A prova fica num registro público que não se reescreve.</h2>
+      <p class="apoio">As medições, a regra e a nota viram um documento com uma impressão digital única, gravada na rede pública Hedera. Comitês, comunidades e financiadores olham o mesmo registro. A conferência pública desses documentos está em preparação.</p>
+    </div>
+    <p class="hash mono" id="hash" aria-label="Impressão digital SHA-256 de exemplo">
+      <span class="chars" data-hash="81c349bb6697b3e2bca1e23928a3ea9fc77df8310e6930206da9410232547705"></span>
+      <span class="legenda">Exemplo de impressão digital SHA-256: a da palavra "água". No aplicativo, cada decisão tem a sua. A gota amplia os últimos caracteres: a lente da conferência.</span>
+    </p>
+  </div>
+</section>
+
+<section class="cena" id="cena-6" data-cena="6" data-pin="360" aria-label="O piloto">
+  <div class="fixo">
+    <div class="bloco alto" data-texto="cap">
+      <h2>Numa das estações, a nota foi 63. O pagamento não saiu.</h2>
+      <p class="apoio">No teste com seis anos de coletas públicas das bacias do Macaé e das Ostras, 18 períodos atingiram a nota combinada e foram pagos. Um ficou abaixo e não foi pago. Tudo em rede de teste, com contas de teste.</p>
+    </div>
+    <div class="grade vidro" id="grade" role="table" aria-label="Piloto: 4 estações por 6 anos, 19 períodos">
+      <div role="row" style="display:contents"><div role="columnheader" class="h"><span class="visually-hidden">Estação</span></div><div role="columnheader" class="h">2015</div><div role="columnheader" class="h">2016</div><div role="columnheader" class="h">2017</div><div role="columnheader" class="h">2018</div><div role="columnheader" class="h">2019</div><div role="columnheader" class="h">2020</div></div>
+      <div role="row" style="display:contents"><div role="rowheader" class="e mono">MC0010</div><div role="cell" class="c pago" data-i="0"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>96</b><small>pago</small></div><div role="cell" class="c pago" data-i="1"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="2"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="3"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="4"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="5"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div></div>
+      <div role="row" style="display:contents"><div role="rowheader" class="e mono">SP0010</div><div role="cell" class="c pago" data-i="6"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="7"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="8"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="9"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="10"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="11"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div></div>
+      <div role="row" style="display:contents"><div role="rowheader" class="e mono">RB0010</div><div role="cell" class="c pago" data-i="12"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="13"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="14"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="15"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="16"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div><div role="cell" class="c pago" data-i="17"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>pago</small></div></div>
+      <div role="row" style="display:contents"><div role="rowheader" class="e mono">RO0015</div><div role="cell" class="c vazio" data-i="19"><span class="visually-hidden">sem período</span></div><div role="cell" class="c vazio" data-i="19"><span class="visually-hidden">sem período</span></div><div role="cell" class="c vazio" data-i="19"><span class="visually-hidden">sem período</span></div><div role="cell" class="c recusado" data-i="18"><b>63</b><small>não pago</small></div><div role="cell" class="c vazio" data-i="19"><span class="visually-hidden">sem período</span></div><div role="cell" class="c vazio" data-i="19"><span class="visually-hidden">sem período</span></div></div>
+      <p class="legenda">Quatro estações, seis anos, dezenove períodos avaliados: dezoito pagos, um não pago. Nota mostrada só onde já foi conferida.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cena" id="cena-7" data-cena="7" data-pin="260" aria-label="Experimente">
+  <div class="fixo">
+    <div class="bloco centro" data-texto="bleed">
+      <h2>Quando o rio melhora, quem cuidou recebe.</h2>
+      <p class="apoio">Experimente o aplicativo como cliente, com dados ilustrativos e carteira simulada. Nada é enviado a nenhuma rede.</p>
+    </div>
+  </div>
+</section>
+
+<section class="leitura" id="experimente" aria-labelledby="h-exp">
+  <h2 id="h-exp">Experimente como cliente</h2>
+  <p class="apoio">Três entradas no aplicativo, em modo demonstração: dados ilustrativos e carteira simulada, nada é enviado a nenhuma rede.</p>
+  <div class="tres">
+    <a class="entrada vidro" href="app/demo/produtor">
+      <h3><img src="assets/icones/vidro/claro/96/wata-produtor.svg" alt="" data-icone="wata-produtor">Sou produtor</h3>
+      <p>Veja os acordos de uma propriedade ilustrativa, o estado de cada período e o que entrou na conta.</p>
+      <span class="acao">Abrir como produtor</span>
+    </a>
+    <a class="entrada vidro" href="app/demo/financiador">
+      <h3><img src="assets/icones/vidro/claro/96/wata-deposito.svg" alt="" data-icone="wata-deposito">Sou financiador</h3>
+      <p>Deposite num acordo simulado e acompanhe cada liberação ao lado da nota que a justificou.</p>
+      <span class="acao">Abrir como financiador</span>
+    </a>
+    <a class="entrada vidro" href="app/demo/comite">
+      <h3><img src="assets/icones/vidro/claro/96/wata-comite.svg" alt="" data-icone="wata-comite">Sou do comitê</h3>
+      <p>Confira a regra, a estação real da RH-VIII e o registro público de cada decisão.</p>
+      <span class="acao">Abrir como comitê</span>
+    </a>
+  </div>
+</section>
+
+<template id="filme-template">
+<section class="leitura" id="filme" aria-labelledby="h-filme">
+  <h2 id="h-filme">O ciclo em um minuto</h2>
+  <p class="apoio">Do rio sem prova ao pagamento com registro: o mundo de água da W.A.T.A. e a interface real do aplicativo, com dados ilustrativos.</p>
+  <div class="filme">
+    <div class="tela vidro">
+      <video id="video-filme" controls preload="metadata" playsinline poster="filme/poster.jpg" crossorigin="anonymous">
+        <source src="filme/wata-60s.webm" type="video/webm">
+        <source src="filme/wata-60s.mp4" type="video/mp4">
+        <track kind="subtitles" srclang="pt-BR" label="Português" src="filme/legendas-pt-BR.vtt" default>
+        Seu navegador não reproduz este vídeo. As legendas estão em <a href="filme/legendas-pt-BR.vtt">texto</a>.
+      </video>
+      <p class="legenda">Sessenta segundos, com legendas em português. As telas do aplicativo mostram dados ilustrativos.</p>
+    </div>
+    <div class="cta vidro">
+      <h3>Quando o rio melhora, quem cuidou recebe.</h3>
+      <p>Em desenvolvimento na rede Hedera. O modo demonstração abre as três portas acima.</p>
+      <a class="botao" href="#experimente">Experimente como cliente</a>
+      <a class="botao sec" href="#cena-3">Ver a regra</a>
+    </div>
+  </div>
+</section>
+</template>
+
+</main>
+
+<footer>
+  <div class="cols vidro">
+    <div>
+      <img class="logo-rodape" src="assets/logo/wata-horizontal-vidro.svg" alt="W.A.T.A. · Water Accountability and Transaction Automation" width="220" height="auto" data-logo>
+      <h4 class="visually-hidden">W.A.T.A.</h4>
+      <p>Water Accountability and Transaction Automation. Pagamento por serviço ambiental hídrico, com prova pública. Em desenvolvimento na rede Hedera.</p>
+    </div>
+    <div>
+      <h4>Entenda</h4>
+      <ul><li><a href="#cena-3">A regra</a></li><li><a href="#cena-5">A prova</a></li><li><a href="#cena-6">O piloto</a></li><li><a href="#experimente">Experimente</a></li></ul>
+    </div>
+    <div>
+      <h4>Onde estamos</h4>
+      <ul><li>Em desenvolvimento na rede Hedera</li><li>Piloto com dados públicos do INEA</li><li><a href="app/demo/produtor">Demonstração do aplicativo</a></li><li><button type="button" class="link-movimento" id="btn-movimento-rodape">Ver sem animação</button></li></ul>
+    </div>
+    <div>
+      <h4>Fontes</h4>
+      <ul><li>INEA · Região Hidrográfica VIII</li><li>CONAMA 357/2005, classe 2</li><li>Foto do Rio Macaé: Maclapessoa, Wikimedia Commons, CC0</li></ul>
+    </div>
+  </div>
+  <div class="assinatura">
+    <span>© 2026 W.A.T.A. Tecnologia e Impacto I.S.</span>
+    <span class="credito">Fontes Archivo e Atkinson Hyperlegible (OFL).</span>
+  </div>
+</footer>
+
+<script type="module" src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+{
+ "res": [
+  1280,
+  960,
+  640
+ ],
+ "cenas": {
+  "1": {
+   "n": 16,
+   "temas": [
+    "claro",
+    "escuro"
+   ],
+   "fonte": [
+    1280,
+    720
+   ]
+  },
+  "2": {
+   "n": 12,
+   "temas": [
+    "claro",
+    "escuro"
+   ],
+   "fonte": [
+    1280,
+    720
+   ]
+  },
+  "3": {
+   "n": 12,
+   "temas": [
+    "claro",
+    "escuro"
+   ],
+   "fonte": [
+    1280,
+    720
+   ]
+  },
+  "4": {
+   "n": 16,
+   "temas": [
+    "claro",
+    "escuro"
+   ],
+   "fonte": [
+    1280,
+    720
+   ]
+  },
+  "5": {
+   "n": 12,
+   "temas": [
+    "claro",
+    "escuro"
+   ],
+   "fonte": [
+    1280,
+    720
+   ]
+  },
+  "6": {
+   "n": 12,
+   "temas": [
+    "claro",
+    "escuro"
+   ],
+   "fonte": [
+    1280,
+    720
+   ]
+  },
+  "7": {
+   "n": 16,
+   "temas": [
+    "claro",
+    "escuro"
+   ],
+   "fonte": [
+    1280,
+    720
+   ]
+  }
+ },
+ "qualidade": 82,
+ "reserva": {}
+}

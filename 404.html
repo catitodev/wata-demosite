@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W.A.T.A.: página não encontrada</title>
+  <script>
+    // GitHub Pages serves this page for any missing address of the site. Addresses of the demo app
+    // (/wata-demosite/app/...) go to the app's index with the rest of the path, which the app restores.
+    (function () {
+      var app = '/wata-demosite/app/';
+      var p = window.location.pathname;
+      if (p.indexOf(app) === 0 && p.length > app.length) {
+        window.location.replace(app + '?rota=' + encodeURIComponent(p.slice(app.length)) + window.location.hash);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Página não encontrada</h1>
+    <p><a href="/wata-demosite/">Voltar ao site da W.A.T.A.</a></p>
+  </main>
+</body>
+</html>
