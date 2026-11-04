@@ -212,19 +212,17 @@ var leve=(navigator.hardwareConcurrency||4)<=4||(navigator.deviceMemory&&navigat
   </div>
 </section>
 
-<template id="filme-template">
 <section class="leitura" id="filme" aria-labelledby="h-filme">
   <h2 id="h-filme">O ciclo em um minuto</h2>
   <p class="apoio">Do rio sem prova ao pagamento com registro: o mundo de água da W.A.T.A. e a interface real do aplicativo, com dados ilustrativos.</p>
   <div class="filme">
     <div class="tela vidro">
       <video id="video-filme" controls preload="metadata" playsinline poster="filme/poster.jpg" crossorigin="anonymous">
-        <source src="filme/wata-60s.webm" type="video/webm">
         <source src="filme/wata-60s.mp4" type="video/mp4">
-        <track kind="subtitles" srclang="pt-BR" label="Português" src="filme/legendas-pt-BR.vtt" default>
+        <track kind="subtitles" srclang="pt-BR" label="Português" src="filme/legendas-pt-BR.vtt">
         Seu navegador não reproduz este vídeo. As legendas estão em <a href="filme/legendas-pt-BR.vtt">texto</a>.
       </video>
-      <p class="legenda">Sessenta segundos, com legendas em português. As telas do aplicativo mostram dados ilustrativos.</p>
+      <p class="legenda">Menos de um minuto, com legendas em português. As telas do aplicativo mostram dados ilustrativos.</p>
     </div>
     <div class="cta vidro">
       <h3>Quando o rio melhora, quem cuidou recebe.</h3>
@@ -234,7 +232,7 @@ var leve=(navigator.hardwareConcurrency||4)<=4||(navigator.deviceMemory&&navigat
     </div>
   </div>
 </section>
-</template>
+
 
 </main>
 
