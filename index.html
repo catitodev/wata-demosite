@@ -112,20 +112,24 @@ var leve=(navigator.hardwareConcurrency||4)<=4||(navigator.deviceMemory&&navigat
         <li data-p="0.70"><b>A nota.</b> De 0 a 100 por período. Quem paga e quem recebe combinam a nota mínima antes.</li>
       </ol>
     </div>
-    <figure class="marcas" aria-label="Régua: sete parâmetros e a nota mínima combinada">
-      <svg viewBox="0 0 420 520" aria-hidden="true">
-        <line x1="400" y1="10" x2="400" y2="510" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-        <g class="m" data-p="0.20" transform="translate(0 94)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2"/><text x="362" y="5" text-anchor="end">Oxigênio dissolvido</text></g>
-        <g class="m" data-p="0.28" transform="translate(0 154)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2"/><text x="362" y="5" text-anchor="end">DBO</text></g>
-        <g class="m" data-p="0.36" transform="translate(0 184)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2"/><text x="362" y="5" text-anchor="end">pH</text></g>
-        <g class="m cruza" data-p="0.44" transform="translate(0 219)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4"/><text x="362" y="5" text-anchor="end">Fósforo total · acima do limite</text></g>
-        <g class="m" data-p="0.52" transform="translate(0 304)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2"/><text x="362" y="5" text-anchor="end">Nitrato</text></g>
-        <g class="m cruza" data-p="0.60" transform="translate(0 354)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4"/><text x="362" y="5" text-anchor="end">Turbidez · acima do limite</text></g>
-        <g class="m" data-p="0.68" transform="translate(0 414)"><line x1="372" y1="0" x2="400" y2="0" stroke="currentColor" stroke-width="2"/><text x="362" y="5" text-anchor="end">Sólidos dissolvidos</text></g>
-        <g class="m min" data-p="0.80" transform="translate(0 164)"><line x1="280" y1="0" x2="400" y2="0" stroke="var(--nivel)" stroke-width="2.5"/><text x="270" y="5" text-anchor="end">70 · nota mínima combinada</text></g>
-        <rect id="nota-barra" x="396" y="510" width="8" height="0" fill="var(--nivel)" opacity=".8"/>
-      </svg>
-      <figcaption class="visually-hidden">Traço contínuo: parâmetro abaixo do limite legal. Tracejado: acima do limite. A linha dos 70 é a nota mínima combinada antes entre quem paga e quem recebe.</figcaption>
+    <figure class="marcas vidro diagrama" aria-label="Como uma amostra vira nota: sete parâmetros comparados ao limite da lei, pesados e somados numa nota de 0 a 100">
+      <figcaption class="cab-d"><b>Uma amostra, sete parâmetros</b><small>exemplo de leitura</small></figcaption>
+      <div class="corpo-d">
+        <ol class="lista-p">
+          <li class="m" data-p="0.20"><span class="nome">Oxigênio dissolvido</span><span class="estado-p">dentro do limite</span></li>
+          <li class="m" data-p="0.26"><span class="nome">DBO</span><span class="estado-p">dentro do limite</span></li>
+          <li class="m" data-p="0.32"><span class="nome">pH</span><span class="estado-p">dentro do limite</span></li>
+          <li class="m cruza" data-p="0.38"><span class="nome">Fósforo total</span><span class="estado-p">acima do limite</span></li>
+          <li class="m" data-p="0.44"><span class="nome">Nitrato</span><span class="estado-p">dentro do limite</span></li>
+          <li class="m cruza" data-p="0.50"><span class="nome">Turbidez</span><span class="estado-p">acima do limite</span></li>
+          <li class="m" data-p="0.56"><span class="nome">Sólidos dissolvidos</span><span class="estado-p">dentro do limite</span></li>
+        </ol>
+        <div class="medidor m" data-p="0.62" aria-hidden="true">
+          <svg viewBox="0 0 8 520" preserveAspectRatio="none"><rect x="0" y="10" width="8" height="500" rx="4" class="trilho"/><rect id="nota-barra" x="0" y="510" width="8" height="0" rx="4"/></svg>
+          <span class="linha-70"><b>70</b> nota mínima combinada</span><span class="topo">100</span><span class="base">0</span>
+        </div>
+      </div>
+      <ol class="fluxo m" data-p="0.70"><li><b>Limite</b> CONAMA 357</li><li><b>Peso</b> índice INEA</li><li><b>Nota</b> 0 a 100</li></ol>
     </figure>
   </div>
 </section>
