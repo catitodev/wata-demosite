@@ -269,3 +269,7 @@ html.sem-vidro .vidro,html.sem-vidro .nav{-webkit-backdrop-filter:none!important
   .gesto{left:auto;right:12px;top:calc(var(--nav) + 8px);transform:none;padding:10px 12px;max-width:46%;gap:6px}.gesto .anel{width:84px;height:84px}.gesto .anel b{font-size:22px}.gesto p{font-size:11px}
   .parametros{bottom:auto}
 }
+
+/* Sem mancha atrás dos textos; legibilidade só pelo contorno das letras. Régua de parâmetros fora até ser redesenhada. */
+.cena .bloco::before,.cena .bloco.centro::before{display:none}
+figure.marcas{display:none}
