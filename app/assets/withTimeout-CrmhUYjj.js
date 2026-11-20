@@ -1,0 +1,1 @@
+import{T as u}from"./index-BVu5jaGA.js";function f(n,{errorInstance:o=new Error("timed out"),timeout:i,signal:a}){return new Promise((s,r)=>{(async()=>{let e;const t=new AbortController;try{i>0&&(e=setTimeout(()=>{a?t.abort():r(o)},i)),s(await n({signal:t?.signal||null}))}catch(l){if(t?.signal.aborted&&u(l)){r(o);return}r(l)}finally{clearTimeout(e)}})()})}export{f as w};
